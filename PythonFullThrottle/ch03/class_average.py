@@ -12,6 +12,8 @@ for grade in grades:
     total += grade  # add current grade to the running total
     grade_counter += 1  # indicate that one more grade was processed
 
+assert(grade_counter==len(grades))
+       
 # termination phase
 average = total / grade_counter
 print(f'Class average is {average}')
