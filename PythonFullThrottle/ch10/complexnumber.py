@@ -15,6 +15,24 @@ class Complex:
         return Complex(self.real + right.real, 
                        self.imaginary + right.imaginary)
 
+    def __iadd__(self, right):
+        """Overrides the +=   operator."""
+        self.real   += right.real
+        self.imaginary   += right.imaginary
+        return self
+
+    def __radd__(self, other):
+        """Add a non-Complex type"""
+        otype = type(other)
+        
+        if otype in ("int","float"):
+           return Complex(self.real+other, self.imaginary)
+        else:
+            if otype == "complex":
+                return Complex(self.real+other.real, self.imaginary+other.imag)
+            else:
+                raise ValueError(f"Cannot add objects of this type: {otype}"
+                                 
     @override
     def __repr__(self):
         """Return string representation for repr()."""

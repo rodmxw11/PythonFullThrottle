@@ -14,6 +14,8 @@ while True:
     else:  # executes only if no exceptions occur
         print(f'{number1:.3f} / {number2:.3f} = {result:.3f}')
         break  # terminate the loop
+    finally:
+        print("FINALLY CALLED")
 
 
 ##########################################################################

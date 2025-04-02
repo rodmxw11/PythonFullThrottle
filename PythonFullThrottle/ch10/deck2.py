@@ -9,12 +9,14 @@ class DeckOfCards:
 
     def __init__(self):
         """Initialize the deck."""
-        self.current_card = 0
+        
         self._deck = []
 
         for count in range(DeckOfCards.NUMBER_OF_CARDS):  
             self._deck.append(Card(Card.FACES[count % 13], 
                 Card.SUITS[count // 13]))
+
+        self.current_card = 0
 
     def shuffle(self):
         """Shuffle deck."""
@@ -35,11 +37,12 @@ class DeckOfCards:
         """Return a string representation of the entire _deck."""
         s = ''
 
+       
         for index, card in enumerate(self._deck):
-            s += f'{self.deal_card():<19}'
+            s += f'{self._deck[index]:<19}'
             if (index + 1) % 4 == 0:
                 s += '\n'
-        
+                
         return s
 
 
